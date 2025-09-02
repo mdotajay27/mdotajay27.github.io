@@ -1,1 +1,854 @@
-<h1>My Portfolio</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengani Ajay - Resume</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Mengani Ajay - Full-Stack Developer Resume. 3+ years experience in web development, JavaScript, React, Node.js">
+    <meta name="keywords" content="full-stack developer, resume, javascript, react, node.js, web developer">
+    <meta name="author" content="John Doe">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="John Doe - Full-Stack Developer Resume">
+    <meta property="og:description" content="Professional resume showcasing 3+ years of full-stack development experience">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/mdotajay27">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-medium: #4b5563;
+            --text-light: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            box-shadow: var(--shadow-lg);
+            min-height: 100vh;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: none;
+                margin: 0;
+            }
+            
+            .print-button,
+            .no-print {
+                display: none !important;
+            }
+            
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            .experience-item,
+            .education-item,
+            .project-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 15pt;
+            }
+            
+            h2 {
+                border-bottom: 2pt solid var(--primary-color);
+                margin-bottom: 10pt;
+                margin-top: 20pt;
+            }
+            
+            a {
+                color: var(--text-dark) !important;
+                text-decoration: none;
+            }
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+
+
+        /* Content */
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-medium);
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: white;
+            color: var(--text-medium);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        /* Experience */
+        .experience-item,
+        .education-item,
+        .project-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-item:last-child,
+        .education-item:last-child,
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .item-company {
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .item-date {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .item-description {
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .achievements {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-medium);
+        }
+
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .project-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Education */
+        .education-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .gpa {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-item {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .cert-name {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .cert-issuer {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .cert-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #f9fafb;
+                --text-medium: #d1d5db;
+                --text-light: #9ca3af;
+                --bg-primary: #1f2937;
+                --bg-secondary: #111827;
+                --border-color: #374151;
+            }
+
+            .skill-tag {
+                background: var(--bg-primary);
+                border-color: var(--border-color);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="profile-photo">👨‍💻</div>
+                <h1 class="name">Mengani Ajay</h1>
+                <p class="title">Full-Stack Developer</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        📧 <a href="mailto:@email.com">majaynet43@gmail.com</a>
+                    </div>
+                    <!-- <div class="contact-item">
+                        📱 <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                    </div> -->
+                    <div class="contact-item">
+                        📍 Hyderabad, Telangana, India
+                    </div>
+                    <div class="contact-item">
+                        🔗 <a href="https://linkedin.com/in/mdotajay27" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        💻 <a href="https://github.com/mdotajay27" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="content">
+            <!-- Summary -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">📋</span>
+                    Professional Summary
+                </h2>
+                <div class="summary">
+                    Experienced Full-Stack Developer with 3+ years of expertise in building scalable web applications and leading development teams. Proven track record of delivering high-quality software solutions using modern technologies including React, Node.js, and cloud platforms. Strong problem-solving abilities and passion for creating efficient, user-focused digital experiences.
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">⚡</span>
+                    Technical Skills
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">HTML5 & CSS3</span>
+                            <!-- <span class="skill-tag">Sass/SCSS</span> -->
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">XML</span>
+                            <span class="skill-tag">AJAX</span>
+                            <span class="skill-tag">JSON</span>
+                            <span class="skill-tag">jQuery</span>
+                            <!-- <span class="skill-tag">Responsive Design</span> -->
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Backend Development</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">RESTful APIs</span>
+                            <span class="skill-tag">GraphQL</span>
+                            <span class="skill-tag">JWT Authentication</span>
+                            <span class="skill-tag">WebSocket</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Database & Cloud</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Nginx</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Tools & Technologies</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Git & GitHub</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Apache Maven</span>
+                            <span class="skill-tag">IBM Websphere</span>
+                            <span class="skill-tag">Apache Tomcat</span>
+                            <span class="skill-tag">Apache ANT</span>
+                            <span class="skill-tag">Webpack</span>
+                            <span class="skill-tag">JUnit</span>
+                            <span class="skill-tag">Mockito</span>
+                            <span class="skill-tag">Selenium</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Concepts & Methodologies</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Agile/Scrum</span>
+                            <span class="skill-tag">Waterfall</span>
+                            <span class="skill-tag">Networking</span>
+                            <span class="skill-tag">ESLint & Prettier</span>
+                            <span class="skill-tag">Performance Optimization</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Team Leadership</span>
+                            <!-- <span class="skill-tag">GIX</span> -->
+                        </div>
+                    </div>
+
+                    
+                    <!-- <div class="skill-category">
+                        <h3>logies</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Agile/Scrum</span>
+                            <span class="skill-tag">Jest & Testing</span>
+                            <span class="skill-tag">Webpack</span>
+                            <span class="skill-tag">ESLint & Prettier</span>
+                            <span class="skill-tag">Performance Optimization</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Team Leadership</span>
+                            <span class="skill-tag">GIX</span>
+                        </div> -->
+                    <!-- </div> -->
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">💼</span>
+                    Professional Experience
+                </h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Associate Engineer</div>
+                            <div class="item-company">Fusion5 Technologies Pvt Ltd</div>
+                        </div>
+                        <div class="item-date">August 2024 - September 2025</div>
+                    </div>
+                    <p class="item-description">
+                        Lead development of high-traffic web applications serving 100K+ active users. Architect scalable microservices infrastructure and mentor junior developers.
+                    </p>
+                    <ul class="achievements">
+                        <li>Reduced application response time by 40% through performance optimization and caching strategies</li>
+                        <li>Led a team of 5 developers in building a real-time analytics dashboard using React and WebSocket</li>
+                        <li>Implemented CI/CD pipelines reducing deployment time from 45 minutes to 8 minutes</li>
+                        <li>Established coding standards and best practices, improving code quality by 35%</li>
+                        <li>Migrated legacy PHP application to Node.js microservices architecture</li>
+                    </ul>
+                </div>
+
+                <!-- <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Full-Stack Developer</div>
+                            <div class="item-company">Digital Solutions Co.</div>
+                        </div>
+                        <div class="item-date">Mar 2020 - Dec 2021</div>
+                    </div>
+                    <p class="item-description">
+                        Developed responsive web applications and RESTful APIs. Collaborated with cross-functional teams to deliver high-quality software solutions.
+                    </p>
+                    <ul class="achievements">
+                        <li>Built e-commerce platform handling $2M+ in transactions using React and Node.js</li>
+                        <li>Optimized database queries resulting in 60% improvement in page load times</li>
+                        <li>Implemented automated testing suite achieving 85% code coverage</li>
+                        <li>Developed payment gateway integration with Stripe and PayPal</li>
+                        <li>Created responsive UI components used across 15+ projects</li>
+                    </ul>
+                </div> -->
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Entrepreneur</div>
+                            <div class="item-company">Gayatri Enterprises</div>
+                        </div>
+                        <div class="item-date">October 2020 - Jun 2024</div>
+                    </div>
+                    <p class="item-description">
+                        Specialized in creating interactive user interfaces and data visualizations for SaaS applications.
+                    </p>
+                    <ul class="achievements">
+                        <li>Developed interactive dashboards using D3.js and Chart.js</li>
+                        <li>Improved user engagement by 25% through UX/UI enhancements</li>
+                        <li>Implemented responsive design across all web applications</li>
+                        <li>Collaborated with design team to create consistent design system</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">🚀</span>
+                    Featured Projects
+                </h2>
+                
+                <div class="project-item">
+                    <div class="item-header">
+                        <div class="item-title">E-Commerce Platform</div>
+                        <div class="item-date">2023</div>
+                    </div>
+                    <p class="item-description">
+                        Full-featured e-commerce solution with real-time inventory management, secure payment processing, and analytics dashboard. Handles high-traffic loads with optimized performance.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Stripe API</span>
+                    </div>
+                    <!-- <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div> -->
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div class="item-title">Real-Time Analytics Dashboard</div>
+                        <div class="item-date">2022</div>
+                    </div>
+                    <p class="item-description">
+                        Interactive analytics platform processing large datasets with real-time updates. Features customizable charts, automated reports, and team collaboration tools.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    <!-- <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div> -->
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">🎓</span>
+                    Education
+                </h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Bachelor of Technology,  Electronics & Communication Engineering</div>
+                            <div class="item-company">Malla Reddy Engineering College, Hyderabad</div>
+                        </div>
+                        <!-- <div class="item-date"></div> -->
+                    <!-- </div>
+                     <div class="education-details">
+                        <span class="degree">Relevant Coursework: Data Structures, Algorithms, Web Development, Database Systems</span>
+                        <span class="gpa">GPA: 3.8/4.0</span> -->
+                    <!-- </div> -->
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-icon">🏆</span>
+                    Certifications
+                </h2>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-name">AWS Certified Solutions Architect</div>
+                        <div class="cert-issuer">Amazon Web Services</div>
+                        <div class="cert-date">2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Oracle Certified Professional Developer</div>
+                        <div class="cert-issuer">Google Cloud</div>
+                        <div class="cert-date">2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">MongoDB Certified Developer</div>
+                        <div class="cert-issuer">MongoDB University</div>
+                        <div class="cert-date">2025</div>
+                    </div>                    <div class="cert-item">
+                        <div class="cert-name">Hashicorp Terraform Associate</div>
+                        <div class="cert-issuer">MongoDB University</div>
+                        <div class="cert-date">2025</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Add smooth scrolling and print functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation on scroll (optional, removed for print-friendly version)
+            const sections = document.querySelectorAll('.section');
+            
+            // Add fade-in animation
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Print functionality - removed
+            
+            // Handle link clicks for projects (since they're placeholder links)
+            document.querySelectorAll('.project-link').forEach(link => {
+                if (link.getAttribute('href') === '#') {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        alert('This is a placeholder link. Replace with your actual project URLs.');
+                    });
+                }
+            });
+
+            // Add current year to dates if needed
+            const currentYear = new Date().getFullYear();
+            document.querySelectorAll('.item-date').forEach(date => {
+                if (date.textContent.includes('Present')) {
+                    // Could add logic here to calculate duration
+                }
+            });
+
+            // Make email and phone links functional
+            document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // These will work automatically, but we can add tracking or other functionality here
+                });
+            });
+        });
+
+        // Remove keyboard shortcuts for print
+        document.addEventListener('keydown', (e) => {
+            // Reserved for future shortcuts if needed
+        });
+    </script>
+
+    <!-- Schema markup for better SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "John Doe",
+        "jobTitle": "Senior Full-Stack Developer",
+        "description": "Experienced Full-Stack Developer with 3+ years of expertise in building scalable web applications",
+        "url": "https://mdotajay27.github.io",
+        "email": "john.doe@email.com",
+        "telephone": "+1-555-123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "San Francisco",
+            "addressRegion": "CA"
+        },
+        "sameAs": [
+            "https://linkedin.com/in/mdotajay27",
+            "https://github.com/mdotajay27"
+        ],
+        "knowsAbout": [
+            "JavaScript",
+            "React.js",
+            "Node
